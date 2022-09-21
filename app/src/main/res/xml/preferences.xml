@@ -19,7 +19,7 @@
         android:title="@string/dyslexia_friendly_font" />
 
     <ListPreference
-        android:defaultValue="@string/font_type_default"
+        android:defaultValue="@string/theme_default"
         android:dialogTitle="@string/theme"
         android:entries="@array/settings_theme"
         android:entryValues="@array/settings_theme"
