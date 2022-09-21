@@ -66,6 +66,7 @@
     <string name="discarded_empty_note">Discarded empty note</string>
     <string name="dyslexia_friendly_font">Dyslexia Friendly Font</string>
     <string name="font_size">Font Size</string>
+    <string name="theme" translatable="false">Theme</string>
     <string name="note_deleted_successfully">Note deleted successfully</string>
     <string name="ask_send_note_to_trash">Send note to trash?</string>
     <string name="note_archived">Note archived</string>
@@ -84,6 +85,29 @@
     <string name="font_size_large">Large</string>
     <string name="font_type_default">Default</string>
     <string name="font_type_dyslexia">Dyslexia-friendly</string>
+    <string name="theme_default" translatable="false">Default</string>
+    <string name="theme_nabu_light" translatable="false">Nabu Light</string>
+    <string name="theme_nabu_dark" translatable="false">Nabu Dark</string>
+
+    <attr name="colorCard" format="string" />
+    <attr name="colorTitle" format="string" />
+    <attr name="addButton" format="string" />
+    <attr name="backButton" format="string" />
+    <attr name="pinButton" format="string" />
+    <attr name="bellButton" format="string" />
+    <attr name="archiveButton" format="string" />
+    <attr name="noteButton" format="string" />
+    <attr name="trashButton1" format="string" />
+    <attr name="trashButton2" format="string" />
+    <attr name="settingsButton" format="string" />
+    <attr name="shareButton" format="string" />
+    <attr name="pasteButton" format="string" />
+    <attr name="font_name_test" format="string" />
+    <attr name="copyButton" format="string" />
+
+
+
+
 
     <string-array name="settings_fontsize">
         <item>@string/font_size_small</item>
@@ -94,5 +118,11 @@
     <string-array name="settings_fonttype">
         <item>@string/font_type_default</item>
         <item>@string/font_type_dyslexia</item>
+    </string-array>
+
+    <string-array name="settings_theme">
+        <item>@string/theme_default</item>
+        <item>@string/theme_nabu_light</item>
+        <item>@string/theme_nabu_dark</item>
     </string-array>
 </resources>

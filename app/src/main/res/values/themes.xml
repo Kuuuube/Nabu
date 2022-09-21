@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.Nabu" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Default" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
@@ -18,7 +18,7 @@
         <item name="colorOnError">@color/md_theme_light_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
         <item name="android:colorBackground">@color/md_theme_light_background</item>
-<!--        <item name="android:navigationBarColor">@color/md_theme_light_tertiary</item>-->
+        <!--        <item name="android:navigationBarColor">@color/md_theme_light_tertiary</item>-->
         <item name="android:statusBarColor">@color/md_theme_light_background</item>
         <item name="android:navigationBarColor">@color/md_theme_light_background</item>
         <item name="android:windowLightStatusBar">true</item>
@@ -34,7 +34,122 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeCloseDrawable">@drawable/ic_close_light</item>
         <item name="actionBarTheme">@style/ThemeOverlay.Material3.ActionBar</item>
+        <item name="colorCard">@color/md_theme_light_colorCard</item>
+        <item name="colorTitle">@color/md_theme_light_colorTitle</item>
+        <item name="backButton">@drawable/ic_back_light</item>
+        <item name="addButton">@drawable/ic_add_light</item>
+        <item name="pinButton">@drawable/ic_pin_light</item>
+        <item name="bellButton">@drawable/ic_bell_light</item>
+        <item name="archiveButton">@drawable/ic_archive_light</item>
+        <item name="noteButton">@drawable/ic_note_light</item>
+        <item name="trashButton1">@drawable/ic_trash_light</item>
+        <item name="trashButton2">@drawable/ic_trash_dark</item>
+        <item name="settingsButton">@drawable/ic_settings_light</item>
+        <item name="shareButton">@drawable/ic_share_dark</item>
+        <item name="pasteButton">@drawable/ic_paste_dark</item>
+        <item name="copyButton">@drawable/ic_copy_dark</item>
     </style>
+
+    <style name="NabuLight" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_light_error</item>
+        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_light_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <!--        <item name="android:navigationBarColor">@color/md_theme_light_tertiary</item>-->
+        <item name="android:statusBarColor">@color/md_theme_light_background</item>
+        <item name="android:navigationBarColor">@color/md_theme_light_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_close_light</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.Material3.ActionBar</item>
+        <item name="colorCard">@color/md_theme_light_colorCard</item>
+        <item name="colorTitle">@color/md_theme_light_colorTitle</item>
+        <item name="backButton">@drawable/ic_back_light</item>
+        <item name="addButton">@drawable/ic_add_light</item>
+        <item name="pinButton">@drawable/ic_pin_light</item>
+        <item name="bellButton">@drawable/ic_bell_light</item>
+        <item name="archiveButton">@drawable/ic_archive_light</item>
+        <item name="noteButton">@drawable/ic_note_light</item>
+        <item name="trashButton1">@drawable/ic_trash_light</item>
+        <item name="trashButton2">@drawable/ic_trash_dark</item>
+        <item name="settingsButton">@drawable/ic_settings_light</item>
+        <item name="shareButton">@drawable/ic_share_dark</item>
+        <item name="pasteButton">@drawable/ic_paste_dark</item>
+        <item name="copyButton">@drawable/ic_copy_dark</item>
+    </style>
+
+    <style name="NabuDark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_dark_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_dark_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_dark_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_dark_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_dark_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_dark_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_dark_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_dark_error</item>
+        <item name="colorErrorContainer">@color/md_theme_dark_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_dark_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_dark_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_dark_background</item>
+        <item name="android:statusBarColor">@color/md_theme_dark_background</item>
+        <item name="android:navigationBarColor">@color/md_theme_dark_background</item>
+        <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_dark_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_dark_outline</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_close_dark</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.Material3.ActionBar</item>
+        <item name="colorCard">@color/md_theme_dark_colorCard</item>
+        <item name="colorTitle">@color/md_theme_dark_colorTitle</item>
+        <item name="backButton">@drawable/ic_back_dark</item>
+        <item name="addButton">@drawable/ic_add_dark</item>
+        <item name="pinButton">@drawable/ic_pin_dark</item>
+        <item name="bellButton">@drawable/ic_bell_dark</item>
+        <item name="archiveButton">@drawable/ic_archive_dark</item>
+        <item name="noteButton">@drawable/ic_note_dark</item>
+        <item name="trashButton1">@drawable/ic_trash_dark</item>
+        <item name="trashButton2">@drawable/ic_trash_light</item>
+        <item name="settingsButton">@drawable/ic_settings_dark</item>
+        <item name="shareButton">@drawable/ic_share_light</item>
+        <item name="pasteButton">@drawable/ic_paste_light</item>
+        <item name="copyButton">@drawable/ic_copy_light</item>
+    </style>
+
+
+
 
     <!-- Dyslexia-Friendly Font fontFamily -->
     <style name="DyslexiaTheme" parent="Theme.Material3.Light.NoActionBar">
@@ -55,7 +170,4 @@
     <style name="settingsLargeTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:textSize">19sp</item>
     </style>
-
-    <color name="colorCard">#FFFCF3</color>
-    <color name="colorTitle">#1F1F1F</color>
 </resources>

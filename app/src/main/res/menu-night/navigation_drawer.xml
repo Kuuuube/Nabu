@@ -6,54 +6,55 @@
             android:id="@+id/notes"
             android:checkable="true"
             android:contentDescription="@string/go_back_to_home_page"
-            android:icon="@drawable/ic_note_dark"
+            android:icon="?attr/noteButton"
             android:title="@string/notes" />
         <item
             android:id="@+id/reminders"
             android:checkable="true"
             android:contentDescription="@string/view_notes_that_have_reminders"
-            android:icon="@drawable/ic_bell_dark"
+            android:icon="?attr/bellButton"
             android:title="@string/reminders" />
     </group>
 
-<!--    <group android:id="@+id/group2">-->
-<!--        <item-->
-<!--            android:id="@+id/labels"-->
-<!--            android:contentDescription="@string/all_note_labels"-->
-<!--            android:title="@string/labels">-->
-<!--            <menu>-->
-<!--                &lt;!&ndash; This is where the user labels will be-->
-<!--                     adding a submenu will make @id/labels act like a subtitle-->
-<!--                     which is what we want-->
-<!--                &ndash;&gt;-->
-<!--                <item-->
-<!--                    android:checkable="true"-->
-<!--                    android:id="@+id/new_label"-->
-<!--                    android:contentDescription="@string/new_label"-->
-<!--                    android:icon="@drawable/ic_add_light"-->
-<!--                    android:title="@string/new_label" />-->
-<!--            </menu>-->
-<!--        </item>-->
-<!--    </group>-->
+    <!--    <group android:id="@+id/group2">-->
+    <!--        <item-->
+    <!--            android:id="@+id/labels"-->
+    <!--            android:checkable="true"-->
+    <!--            android:contentDescription="@string/all_note_labels"-->
+    <!--            android:title="@string/labels">-->
+    <!--            <menu>-->
+    <!--                &lt;!&ndash; This is where the user labels will be-->
+    <!--                     adding a submenu will make @id/labels act like a subtitle-->
+    <!--                     which is what we want-->
+    <!--                &ndash;&gt;-->
+    <!--                <item-->
+    <!--                    android:id="@+id/new_label"-->
+    <!--                    android:checkable="true"-->
+    <!--                    android:contentDescription="@string/new_label"-->
+    <!--                    android:icon="@drawable/ic_add_light"-->
+    <!--                    android:title="@string/new_label" />-->
+    <!--            </menu>-->
+    <!--        </item>-->
+    <!--    </group>-->
 
     <group android:id="@+id/group3">
         <item
             android:id="@+id/archive"
             android:checkable="true"
             android:contentDescription="@string/go_to_archive"
-            android:icon="@drawable/ic_archive_dark"
+            android:icon="?attr/archiveButton"
             android:title="@string/archive" />
         <item
             android:id="@+id/trash"
             android:checkable="true"
             android:contentDescription="@string/go_to_trash"
-            android:icon="@drawable/ic_trash_dark"
+            android:icon="?attr/trashButton1"
             android:title="@string/trash" />
         <item
             android:id="@+id/settings"
             android:checkable="true"
             android:contentDescription="@string/go_to_settings"
-            android:icon="@drawable/ic_settings_dark"
+            android:icon="?attr/settingsButton"
             android:title="@string/settings" />
     </group>
 

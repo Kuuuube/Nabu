@@ -5,14 +5,14 @@
     <item
         android:id="@+id/note_paste"
         android:contentDescription="@string/paste_from_clipboard"
-        android:icon="@drawable/ic_paste_dark"
+        android:icon="?attr/pasteButton"
         android:title="@string/paste"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
     <item
         android:id="@+id/note_copy"
         android:contentDescription="@string/copy_note_content_to_clipboard"
-        android:icon="@drawable/ic_copy_dark"
+        android:icon="?attr/copyButton"
         android:title="@string/copy_note_content_to_clipboard"
         app:showAsAction="always" />
     <!--    <item-->
@@ -30,13 +30,13 @@
     <item
         android:id="@+id/note_share"
         android:contentDescription="@string/share_this_note"
-        android:icon="@drawable/ic_share_dark"
+        android:icon="?attr/shareButton"
         android:title="@string/share_note"
         app:showAsAction="always" />
     <item
         android:id="@+id/note_delete"
         android:contentDescription="@string/delete_this_note"
-        android:icon="@drawable/ic_trash_dark"
+        android:icon="?attr/trashButton2"
         android:title="@string/delete"
         app:showAsAction="always" />
 </menu>

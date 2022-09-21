@@ -32,6 +32,15 @@ public class ArchiveActivity extends AppCompatActivity
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         String fontType = settings.getString("settings_fonttype", getString(R.string.font_type_default));
 
+        // Get Theme Color SharedPreferences
+        String themeColor = settings.getString("settings_theme", getString(R.string.theme_default));
+        if (themeColor.equals(("Nabu Light"))) {
+            getTheme().applyStyle(R.style.NabuLight, true);
+        }
+        if (themeColor.equals(("Nabu Dark"))) {
+            getTheme().applyStyle(R.style.NabuDark, true);
+        }
+
         // add dyslexia-friendly fontFamily style to the default theme
         if (fontType.equals(getString(R.string.font_type_dyslexia))) {
             getTheme().applyStyle(R.style.DyslexiaTheme, false);

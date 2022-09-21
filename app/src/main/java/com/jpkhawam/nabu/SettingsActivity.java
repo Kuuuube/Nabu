@@ -22,10 +22,19 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
 
         super.onCreate(savedInstanceState);
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        // Get Theme Color SharedPreferences
+        String themeColor = settings.getString("settings_theme", getString(R.string.theme_default));
         // Get Font Type SharedPreferences
         String fontType = settings.getString("settings_fonttype", getString(R.string.font_type_default));
         // Get Font Size SharedPreferences
         String fontSize = settings.getString("settings_fontsize", getString(R.string.font_size_small));
+
+        if (themeColor.equals(("Nabu Light"))) {
+            getTheme().applyStyle(R.style.NabuLight, true);
+        }
+        if (themeColor.equals(("Nabu Dark"))) {
+            getTheme().applyStyle(R.style.NabuDark, true);
+        }
 
         // Set Settings Font Size Value According To Font Size SharedPreferences
         if (fontSize.equals(getString(R.string.font_size_medium))) {

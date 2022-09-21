@@ -17,4 +17,13 @@
         android:key="settings_fonttype"
         android:summary="%0$s"
         android:title="@string/dyslexia_friendly_font" />
+
+    <ListPreference
+        android:defaultValue="@string/font_type_default"
+        android:dialogTitle="@string/theme"
+        android:entries="@array/settings_theme"
+        android:entryValues="@array/settings_theme"
+        android:key="settings_theme"
+        android:summary="%0$s"
+        android:title="@string/theme" />
 </PreferenceScreen>

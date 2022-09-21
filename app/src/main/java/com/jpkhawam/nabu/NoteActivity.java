@@ -45,6 +45,16 @@ public class NoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences settings = androidx.preference.PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Get Theme Color SharedPreferences
+        String themeColor = settings.getString("settings_theme", getString(R.string.theme_default));
+        if (themeColor.equals(("Nabu Light"))) {
+            getTheme().applyStyle(R.style.NabuLight, true);
+        }
+        if (themeColor.equals(("Nabu Dark"))) {
+            getTheme().applyStyle(R.style.NabuDark, true);
+        }
+
         // Get Font Type SharedPreferences
         String fontType = settings.getString("settings_fonttype", getString(R.string.font_type_default));
 

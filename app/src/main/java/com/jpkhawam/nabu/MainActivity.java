@@ -36,6 +36,15 @@ public class MainActivity extends AppCompatActivity
         // Get Font Type SharedPreferences
         String fontType = settings.getString("settings_fonttype", getString(R.string.font_type_default));
 
+        // Get Theme Color SharedPreferences
+        String themeColor = settings.getString("settings_theme", getString(R.string.theme_default));
+        if (themeColor.equals(("Nabu Light"))) {
+            getTheme().applyStyle(R.style.NabuLight, true);
+        }
+        if (themeColor.equals(("Nabu Dark"))) {
+            getTheme().applyStyle(R.style.NabuDark, true);
+        }
+
         // Add Dyslexia-Friendly fontFamily Style To The Default Theme According To Font Type SharedPreferences
         if (fontType.equals(getString(R.string.font_type_dyslexia))) {
             getTheme().applyStyle(R.style.DyslexiaTheme, false);
@@ -146,7 +155,6 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, NoteActivity.class);
             startActivity(intent);
         });
-
     }
 
     private void showFirstStartUpDialog() {

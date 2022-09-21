@@ -70,7 +70,7 @@
             android:layout_margin="40dp"
             android:backgroundTint="?attr/colorBackgroundFloating"
             android:contentDescription="@string/create_new_note"
-            app:srcCompat="@drawable/ic_add_light" />
+            app:srcCompat="?attr/addButton" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
