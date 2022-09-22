@@ -20,10 +20,29 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ArchiveActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public ArrayList<Note> reverse(ArrayList<Note> array) {
+        Collections.reverse(array);
+        return array;
+    }
+
+    public ArrayList<Note> getAllNotesFromArchiveSorted() {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        //Get Sort Order SharedPreferences
+        String sortOrder = settings.getString("settings_sort_order", getString(R.string.sort_order_asc));
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(ArchiveActivity.this);
+        if (sortOrder.equals("Ascending")) {
+            return reverse(dataBaseHelper.getAllNotesFromArchive());
+        }
+        else {
+            return dataBaseHelper.getAllNotesFromArchive();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +71,7 @@ public class ArchiveActivity extends AppCompatActivity
         RecyclerView notesRecyclerView = findViewById(R.id.notesRecyclerView);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(ArchiveActivity.this);
 
-        AtomicReference<ArrayList<Note>> allNotes = new AtomicReference<>(dataBaseHelper.getAllNotesFromArchive());
+        AtomicReference<ArrayList<Note>> allNotes = new AtomicReference<>(getAllNotesFromArchiveSorted());
         NotesRecyclerViewAdapter adapter = new NotesRecyclerViewAdapter(this, drawerLayout);
         adapter.setNotes(allNotes.get());
         notesRecyclerView.setAdapter(adapter);
@@ -60,7 +79,7 @@ public class ArchiveActivity extends AppCompatActivity
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onChanged() {
-                allNotes.set(dataBaseHelper.getAllNotesFromArchive());
+                allNotes.set(getAllNotesFromArchiveSorted());
                 adapter.setNotes(allNotes.get());
                 if (allNotes.get().isEmpty())
                     emptyNotes.setVisibility(View.VISIBLE);
@@ -69,7 +88,7 @@ public class ArchiveActivity extends AppCompatActivity
             }
         });
 
-        if (dataBaseHelper.getAllNotesFromArchive().isEmpty()) {
+        if (getAllNotesFromArchiveSorted().isEmpty()) {
             emptyNotes.setVisibility(View.VISIBLE);
         } else {
             emptyNotes.setVisibility(View.GONE);
@@ -85,7 +104,7 @@ public class ArchiveActivity extends AppCompatActivity
                 Snackbar.make(drawerLayout, R.string.note_archived, Snackbar.LENGTH_SHORT)
                         .setAction(R.string.undo, view -> {
                             dataBaseHelper.unarchiveNote(archivedNoteId);
-                            allNotes.set(dataBaseHelper.getAllNotesFromArchive());
+                            allNotes.set(getAllNotesFromArchiveSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
@@ -95,7 +114,7 @@ public class ArchiveActivity extends AppCompatActivity
                 Snackbar.make(drawerLayout, R.string.note_unarchived, Snackbar.LENGTH_SHORT)
                         .setAction(R.string.undo, view -> {
                             dataBaseHelper.archiveNote(unarchivedNoteId);
-                            allNotes.set(dataBaseHelper.getAllNotesFromArchive());
+                            allNotes.set(getAllNotesFromArchiveSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
@@ -106,7 +125,7 @@ public class ArchiveActivity extends AppCompatActivity
                         .setAction(R.string.undo, view -> {
                             dataBaseHelper.restoreNote(deletedNoteId);
                             dataBaseHelper.archiveNote(deletedNoteId);
-                            allNotes.set(dataBaseHelper.getAllNotesFromArchive());
+                            allNotes.set(getAllNotesFromArchiveSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);

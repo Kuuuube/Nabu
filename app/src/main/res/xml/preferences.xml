@@ -28,7 +28,16 @@
         android:title="@string/theme" />
 
     <ListPreference
-        android:defaultValue="@string/backup_default"
+        android:defaultValue="@string/sort_order_asc"
+        android:dialogTitle="@string/sort_order"
+        android:entries="@array/settings_sort_order"
+        android:entryValues="@array/settings_sort_order"
+        android:key="settings_sort_order"
+        android:summary="%0$s"
+        android:title="@string/sort_order" />
+
+    <ListPreference
+        android:defaultValue="@string/backup_off"
         android:dialogTitle="@string/backup"
         android:entries="@array/settings_backup"
         android:entryValues="@array/settings_backup"

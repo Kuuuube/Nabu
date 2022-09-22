@@ -1,7 +1,5 @@
 package com.jpkhawam.nabu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,7 +8,7 @@ import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class BackupHelper extends AppCompatActivity {
+public class BackupHelper {
 
     public void exportFile(File src, File dst) throws IOException {
         //if folder does not exist

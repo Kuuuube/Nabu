@@ -26,11 +26,30 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static boolean backupMessageShown = false;
+
+    public ArrayList<Note> reverse(ArrayList<Note> array) {
+        Collections.reverse(array);
+        return array;
+    }
+
+    public ArrayList<Note> getAllNotesSorted() {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        //Get Sort Order SharedPreferences
+        String sortOrder = settings.getString("settings_sort_order", getString(R.string.sort_order_asc));
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+        if (sortOrder.equals("Ascending")) {
+            return reverse(dataBaseHelper.getAllNotes());
+        }
+        else {
+            return dataBaseHelper.getAllNotes();
+        }
+    }
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -38,8 +57,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+
         //Get Backup SharedPreferences
-        String backup = settings.getString("settings_backup", getString(R.string.backup_default));
+        String backup = settings.getString("settings_backup", getString(R.string.backup_off));
 
         // Get Font Type SharedPreferences
         String fontType = settings.getString("settings_fonttype", getString(R.string.font_type_default));
@@ -103,7 +123,7 @@ public class MainActivity extends AppCompatActivity
         RecyclerView notesRecyclerView = findViewById(R.id.notesRecyclerView);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
 
-        AtomicReference<ArrayList<Note>> allNotes = new AtomicReference<>(dataBaseHelper.getAllNotes());
+        AtomicReference<ArrayList<Note>> allNotes = new AtomicReference<>(getAllNotesSorted());;
         NotesRecyclerViewAdapter adapter = new NotesRecyclerViewAdapter(this, drawerLayout);
         adapter.setNotes(allNotes.get());
         notesRecyclerView.setAdapter(adapter);
@@ -111,7 +131,7 @@ public class MainActivity extends AppCompatActivity
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onChanged() {
-                allNotes.set(dataBaseHelper.getAllNotes());
+                allNotes.set(getAllNotesSorted());
                 adapter.setNotes(allNotes.get());
                 if (allNotes.get().isEmpty())
                     emptyNotes.setVisibility(View.VISIBLE);
@@ -120,7 +140,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        if (dataBaseHelper.getAllNotes().isEmpty()) {
+        if (getAllNotesSorted().isEmpty()) {
             emptyNotes.setVisibility(View.VISIBLE);
         } else {
             emptyNotes.setVisibility(View.GONE);
@@ -136,7 +156,7 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(drawerLayout, R.string.notes_archived, Snackbar.LENGTH_SHORT)
                         .setAction(R.string.undo, view -> {
                             dataBaseHelper.unarchiveNote(archivedNoteId);
-                            allNotes.set(dataBaseHelper.getAllNotes());
+                            allNotes.set(getAllNotesSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
@@ -146,7 +166,7 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(drawerLayout, R.string.notes_unarchived, Snackbar.LENGTH_SHORT)
                         .setAction(R.string.undo, view -> {
                             dataBaseHelper.archiveNote(unarchivedNoteId);
-                            allNotes.set(dataBaseHelper.getAllNotes());
+                            allNotes.set(getAllNotesSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
@@ -156,7 +176,7 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(drawerLayout, R.string.note_sent_to_trash, Snackbar.LENGTH_SHORT)
                         .setAction(R.string.undo, view -> {
                             dataBaseHelper.restoreNote(deletedNoteId);
-                            allNotes.set(dataBaseHelper.getAllNotes());
+                            allNotes.set(getAllNotesSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
