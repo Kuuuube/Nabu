@@ -67,6 +67,7 @@
     <string name="dyslexia_friendly_font">Dyslexia Friendly Font</string>
     <string name="font_size">Font Size</string>
     <string name="theme" translatable="false">Theme</string>
+    <string name="backup" translatable="false">Backup</string>
     <string name="note_deleted_successfully">Note deleted successfully</string>
     <string name="ask_send_note_to_trash">Send note to trash?</string>
     <string name="note_archived">Note archived</string>
@@ -88,6 +89,8 @@
     <string name="theme_default" translatable="false">Default</string>
     <string name="theme_nabu_light" translatable="false">Nabu Light</string>
     <string name="theme_nabu_dark" translatable="false">Nabu Dark</string>
+    <string name="backup_default" translatable="false">Off</string>
+    <string name="backup_on" translatable="false">On</string>
 
     <attr name="colorCard" format="string" />
     <attr name="colorTitle" format="string" />
@@ -124,5 +127,10 @@
         <item>@string/theme_default</item>
         <item>@string/theme_nabu_light</item>
         <item>@string/theme_nabu_dark</item>
+    </string-array>
+
+    <string-array name="settings_backup">
+        <item>@string/backup_default</item>
+        <item>@string/backup_on</item>
     </string-array>
 </resources>

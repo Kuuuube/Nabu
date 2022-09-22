@@ -26,4 +26,14 @@
         android:key="settings_theme"
         android:summary="%0$s"
         android:title="@string/theme" />
+
+    <ListPreference
+        android:defaultValue="@string/backup_default"
+        android:dialogTitle="@string/backup"
+        android:entries="@array/settings_backup"
+        android:entryValues="@array/settings_backup"
+        android:key="settings_backup"
+        android:summary="%0$s"
+        android:title="@string/backup" />
+
 </PreferenceScreen>

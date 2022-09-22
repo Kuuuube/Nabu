@@ -29,10 +29,10 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         // Get Font Size SharedPreferences
         String fontSize = settings.getString("settings_fontsize", getString(R.string.font_size_small));
 
-        if (themeColor.equals(("Nabu Light"))) {
+        if (themeColor.equals("Nabu Light")) {
             getTheme().applyStyle(R.style.NabuLight, true);
         }
-        if (themeColor.equals(("Nabu Dark"))) {
+        if (themeColor.equals("Nabu Dark")) {
             getTheme().applyStyle(R.style.NabuDark, true);
         }
 

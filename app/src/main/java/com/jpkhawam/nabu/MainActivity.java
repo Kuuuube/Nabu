@@ -1,8 +1,10 @@
 package com.jpkhawam.nabu;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,11 +23,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static boolean backupMessageShown = false;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -33,6 +38,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        //Get Backup SharedPreferences
+        String backup = settings.getString("settings_backup", getString(R.string.backup_default));
+
         // Get Font Type SharedPreferences
         String fontType = settings.getString("settings_fonttype", getString(R.string.font_type_default));
 
@@ -50,6 +58,38 @@ public class MainActivity extends AppCompatActivity
             getTheme().applyStyle(R.style.DyslexiaTheme, false);
         }
         setContentView(R.layout.activity_main);
+
+        if (backup.equals("On")) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                try {
+                    File externalPath = this.getExternalFilesDir("");
+                    File internalPath = getDatabasePath("notes.db");
+                    BackupHelper backupHelper = new BackupHelper();
+                    backupHelper.exportFile(internalPath, externalPath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage(e.toString())
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
+                SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+                // Change firstStartUp SharedPreferences To False
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("firstStartUp", false);
+                editor.apply();
+            }
+            else
+            {
+                if (!backupMessageShown) {
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage("Storage permission not given. Backups cannot be made.")
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
+                backupMessageShown = true;
+            }
+        }
 
         // Check firstStartUp SharedPreferences and Show Dialog If True
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
