@@ -47,3 +47,7 @@ This is how it looks like with the font modified
 <p align="center">
   <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/11-%20extra%201.png" alt="screenshot of the sidebar that lets you navigate between notes, archive, trash and settings" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/12-%20extra%202.png" alt="screenshot of confirmation dialog when deleting notes permanently" height="550"/>
 </p> 
+
+## Building
+
+Built on Android Studio 2021.3.1, installing through ADB is recommended for testing.
