@@ -28,8 +28,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public static boolean backupMessageShown = false;
 
@@ -133,10 +132,8 @@ public class MainActivity extends AppCompatActivity
             public void onChanged() {
                 allNotes.set(getAllNotesSorted());
                 adapter.setNotes(allNotes.get());
-                if (allNotes.get().isEmpty())
-                    emptyNotes.setVisibility(View.VISIBLE);
-                else
-                    emptyNotes.setVisibility(View.GONE);
+                if (allNotes.get().isEmpty()) emptyNotes.setVisibility(View.VISIBLE);
+                else emptyNotes.setVisibility(View.GONE);
             }
         });
 
@@ -153,35 +150,29 @@ public class MainActivity extends AppCompatActivity
             long deletedNoteId = intentReceived.getLongExtra(NoteActivity.DELETED_NOTE_KEY, -1);
             boolean discardedNote = intentReceived.getBooleanExtra(NoteActivity.DISCARDED_NOTE_KEY, false);
             if (archivedNoteId != -1) {
-                Snackbar.make(drawerLayout, R.string.notes_archived, Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.undo, view -> {
+                Snackbar.make(drawerLayout, R.string.notes_archived, Snackbar.LENGTH_SHORT).setAction(R.string.undo, view -> {
                             dataBaseHelper.unarchiveNote(archivedNoteId);
                             allNotes.set(getAllNotesSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
-                        })
-                        .show();
+                        }).show();
             } else if (unarchivedNoteId != -1) {
-                Snackbar.make(drawerLayout, R.string.notes_unarchived, Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.undo, view -> {
+                Snackbar.make(drawerLayout, R.string.notes_unarchived, Snackbar.LENGTH_SHORT).setAction(R.string.undo, view -> {
                             dataBaseHelper.archiveNote(unarchivedNoteId);
                             allNotes.set(getAllNotesSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
-                        })
-                        .show();
+                        }).show();
             } else if (deletedNoteId != -1) {
-                Snackbar.make(drawerLayout, R.string.note_sent_to_trash, Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.undo, view -> {
+                Snackbar.make(drawerLayout, R.string.note_sent_to_trash, Snackbar.LENGTH_SHORT).setAction(R.string.undo, view -> {
                             dataBaseHelper.restoreNote(deletedNoteId);
                             allNotes.set(getAllNotesSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
-                        })
-                        .show();
+                        }).show();
             } else if (discardedNote) {
                 Snackbar.make(drawerLayout, R.string.discarded_empty_note, Snackbar.LENGTH_SHORT).show();
             }
@@ -203,8 +194,7 @@ public class MainActivity extends AppCompatActivity
         if (fontSize.equals("Large")) {
             navigationView.setItemTextAppearance(R.style.NavigationViewLarge);
         }
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.open_nav_drawer, R.string.close_nav_drawer);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav_drawer, R.string.close_nav_drawer);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -218,14 +208,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void showFirstStartUpDialog() {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.accessibility_settings)
-                .setMessage(R.string.accessibility_prompt)
-                .setPositiveButton(R.string.Yes, (dialogInterface, i) ->
-                        startActivity(new Intent(MainActivity.this, SettingsActivity.class)))
-                .setNegativeButton(R.string.No, (dialogInterface, i) ->
-                        dialogInterface.dismiss())
-                .create().show();
+        new MaterialAlertDialogBuilder(this).setTitle(R.string.accessibility_settings).setMessage(R.string.accessibility_prompt).setPositiveButton(R.string.Yes, (dialogInterface, i) -> startActivity(new Intent(MainActivity.this, SettingsActivity.class))).setNegativeButton(R.string.No, (dialogInterface, i) -> dialogInterface.dismiss()).create().show();
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         // Change firstStartUp SharedPreferences To False
         SharedPreferences.Editor editor = prefs.edit();

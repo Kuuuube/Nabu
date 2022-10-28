@@ -33,12 +33,12 @@ public class NoteActivity extends AppCompatActivity {
     public static final String DISCARDED_NOTE_KEY = "discardedNote";
     public static final String DELETED_NOTE_KEY = "deletedNoteId";
     public static final String DELETED_NOTE_FROM_TRASH_KEY = "deletedNoteFromTrash";
+    int editTitleFontSizeInt = 20;
+    int editContentFontSizeInt = 16;
     private Note currentNote;
     private CoordinatorLayout parent;
     private TextInputEditText editTextTitle;
     private TextInputEditText editTextContent;
-    int editTitleFontSizeInt = 20;
-    int editContentFontSizeInt = 16;
 
     @SuppressLint({"NonConstantResourceId"})
     @Override
@@ -354,10 +354,8 @@ public class NoteActivity extends AppCompatActivity {
             outgoingIntent = new Intent(this, TrashActivity.class);
         else if (dataBaseHelper.isInArchive(currentNote))
             outgoingIntent = new Intent(this, ArchiveActivity.class);
-        else
-            outgoingIntent = new Intent(this, MainActivity.class);
-        if ((currentNote.getTitle() == null || currentNote.getTitle().equals("")) &&
-                (currentNote.getContent() == null || currentNote.getContent().equals(""))) {
+        else outgoingIntent = new Intent(this, MainActivity.class);
+        if ((currentNote.getTitle() == null || currentNote.getTitle().equals("")) && (currentNote.getContent() == null || currentNote.getContent().equals(""))) {
             dataBaseHelper.deleteNote(currentNote);
             dataBaseHelper.deleteNoteFromTrash(currentNote);
             outgoingIntent.putExtra(DISCARDED_NOTE_KEY, true);

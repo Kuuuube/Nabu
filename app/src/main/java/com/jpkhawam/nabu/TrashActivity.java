@@ -24,8 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class TrashActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class TrashActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ArrayList<Note> reverse(ArrayList<Note> array) {
         Collections.reverse(array);
@@ -82,10 +81,8 @@ public class TrashActivity extends AppCompatActivity
             public void onChanged() {
                 allNotes.set(getAllNotesFromTrashSorted());
                 adapter.setNotes(allNotes.get());
-                if (allNotes.get().isEmpty())
-                    emptyNotes.setVisibility(View.VISIBLE);
-                else
-                    emptyNotes.setVisibility(View.GONE);
+                if (allNotes.get().isEmpty()) emptyNotes.setVisibility(View.VISIBLE);
+                else emptyNotes.setVisibility(View.GONE);
             }
         });
 
@@ -102,26 +99,22 @@ public class TrashActivity extends AppCompatActivity
             boolean discardedNote = intentReceived.getBooleanExtra(NoteActivity.DISCARDED_NOTE_KEY, false);
             boolean deletedNoteFromTrash = intentReceived.getBooleanExtra(NoteActivity.DELETED_NOTE_FROM_TRASH_KEY, false);
             if (archivedNoteId != -1) {
-                Snackbar.make(drawerLayout, R.string.note_archived, Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.undo, view -> {
+                Snackbar.make(drawerLayout, R.string.note_archived, Snackbar.LENGTH_SHORT).setAction(R.string.undo, view -> {
                             dataBaseHelper.unarchiveNote(archivedNoteId);
                             dataBaseHelper.deleteNote(archivedNoteId);
                             allNotes.set(getAllNotesFromTrashSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
-                        })
-                        .show();
+                        }).show();
             } else if (unarchivedNoteId != -1) {
-                Snackbar.make(drawerLayout, R.string.note_unarchived, Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.undo, view -> {
+                Snackbar.make(drawerLayout, R.string.note_unarchived, Snackbar.LENGTH_SHORT).setAction(R.string.undo, view -> {
                             dataBaseHelper.archiveNote(unarchivedNoteId);
                             allNotes.set(getAllNotesFromTrashSorted());
                             adapter.setNotes(allNotes.get());
                             notesRecyclerView.setAdapter(adapter);
                             emptyNotes.setVisibility(View.GONE);
-                        })
-                        .show();
+                        }).show();
             } else if (discardedNote) {
                 Snackbar.make(drawerLayout, R.string.discarded_empty_note, Snackbar.LENGTH_SHORT).show();
             } else if (deletedNoteFromTrash) {
@@ -145,8 +138,7 @@ public class TrashActivity extends AppCompatActivity
         if (fontSize.equals(getString(R.string.font_size_large))) {
             navigationView.setItemTextAppearance(R.style.NavigationViewLarge);
         }
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.open_nav_drawer, R.string.close_nav_drawer);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav_drawer, R.string.close_nav_drawer);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
