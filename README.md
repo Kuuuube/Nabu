@@ -16,38 +16,46 @@ Currently, pinning notes and adding reminders are not implemented. Everything el
 ### First Launch
 On first launch, user is prompted if they need accessibility settings right away
 <p align="center">
-<img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/1-%20accessibility%20prompt%20light.png" alt="screenshot of accessibility prompt that shows on first launch, asking the user if they need accessibility settings" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/2-%20accessibility%20prompt%20dark.png" alt="same screenshot of accessibility prompt but in dark mode" height="550"/>
+<img align="center" src="./screenshots/1-%20accessibility%20prompt%20light.png" alt="screenshot of accessibility prompt that shows on first launch, asking the user if they need accessibility settings" height="550"/> <img align="center" src="./screenshots/2-%20accessibility%20prompt%20dark.png" alt="same screenshot of accessibility prompt but in dark mode" height="550"/>
 </p>
 
 ### Main Screen
 This is what the main screen looks like in light/dark mode
 <p align="center">
-  <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/3-%20main%20screen%20light.png" alt="screenshot main page in light mode. it shows how notes are layed out in a grid" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/4-%20main%20screen%20dark.png" alt="same screenshot of layout but in dark mode" height="550"/>
+  <img align="center" src="./screenshots/3-%20main%20screen%20light.png" alt="screenshot main page in light mode. it shows how notes are layed out in a grid" height="550"/> <img align="center" src="./screenshots/4-%20main%20screen%20dark.png" alt="same screenshot of layout but in dark mode" height="550"/>
 </p> 
 
 ### Main Screen with Accessibility Settings On
 This is how it looks like with the dyslexia font / bigger font 
 <p align="center">
-  <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/5-%20main%20screen%20light%20dyslexia.png" alt="screenshot of main page but with the font changed to a font easy to read by dyslexic people" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/6-%20main%20screen%20dark%20dyslexia%20larger%20font.png" alt="same screenshot but with a larger font" height="550"/>
+  <img align="center" src="./screenshots/5-%20main%20screen%20light%20dyslexia.png" alt="screenshot of main page but with the font changed to a font easy to read by dyslexic people" height="550"/> <img align="center" src="./screenshots/6-%20main%20screen%20dark%20dyslexia%20larger%20font.png" alt="same screenshot but with a larger font" height="550"/>
 </p> 
 
 ### Note Editing Screen
 This is the screen shown when editing a note
 <p align="center">
-  <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/7-%20note%20edit%20light.png" alt="screenshot of the screen that shows up when you edit a note (in light mode)" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/8-%20note%20edit%20dark.png" alt="same screenshot of note editing but with dark mode" height="550"/>
+  <img align="center" src="./screenshots/7-%20note%20edit%20light.png" alt="screenshot of the screen that shows up when you edit a note (in light mode)" height="550"/> <img align="center" src="./screenshots/8-%20note%20edit%20dark.png" alt="same screenshot of note editing but with dark mode" height="550"/>
 </p> 
 
 ### Note Editing Screen with Accessibility Settings
 This is how it looks like with the font modified 
 <p align="center">
-  <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/9-%20note%20edit%20dark%20dyslexia.png" alt="screenshot of the screen that shows up when you edit a note with dyslexia font turned on" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/10-%20note%20edit%20light%20larger%20font.png" alt="same screenshot of note editing but with larger font" height="550"/>
+  <img align="center" src="./screenshots/9-%20note%20edit%20dark%20dyslexia.png" alt="screenshot of the screen that shows up when you edit a note with dyslexia font turned on" height="550"/> <img align="center" src="./screenshots/10-%20note%20edit%20light%20larger%20font.png" alt="same screenshot of note editing but with larger font" height="550"/>
 </p> 
 
 ### Navigation View And Other Activities
 <p align="center">
-  <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/11-%20extra%201.png" alt="screenshot of the sidebar that lets you navigate between notes, archive, trash and settings" height="550"/> <img align="center" src="https://github.com/jpkhawam/Nabu/blob/main/screenshots/12-%20extra%202.png" alt="screenshot of confirmation dialog when deleting notes permanently" height="550"/>
+  <img align="center" src="./screenshots/11-%20extra%201.png" alt="screenshot of the sidebar that lets you navigate between notes, archive, trash and settings" height="550"/> <img align="center" src="./screenshots/12-%20extra%202.png" alt="screenshot of confirmation dialog when deleting notes permanently" height="550"/>
 </p> 
 
 ## Building
 
 Built on Android Studio 2021.3.1, installing through ADB is recommended for testing.
+
+To install through ADB:
+
+1. Enable ADB through developer options on your phone
+
+2. Plug your phone into your computer or connect wirelessly
+
+3. Run the app from Android Studio
