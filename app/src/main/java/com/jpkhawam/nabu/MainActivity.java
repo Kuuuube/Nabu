@@ -238,16 +238,43 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.trash:
-                Intent trashIntent = new Intent(this, TrashActivity.class);
-                startActivity(trashIntent);
+                try {
+                    Intent trashIntent = new Intent(this, TrashActivity.class);
+                    startActivity(trashIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage(e.toString())
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
                 return true;
             case R.id.archive:
-                Intent archiveIntent = new Intent(this, ArchiveActivity.class);
-                startActivity(archiveIntent);
+                try {
+                    Intent archiveIntent = new Intent(this, ArchiveActivity.class);
+                    startActivity(archiveIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage(e.toString())
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
                 return true;
             case R.id.settings:
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
+                try {
+                    Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                    startActivity(settingsIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage(e.toString())
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
                 return true;
             default:
                 return false;

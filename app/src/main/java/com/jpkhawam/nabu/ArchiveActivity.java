@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -165,16 +166,43 @@ public class ArchiveActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.notes:
-                Intent mainIntent = new Intent(this, MainActivity.class);
-                startActivity(mainIntent);
+                try {
+                    Intent mainIntent = new Intent(this, MainActivity.class);
+                    startActivity(mainIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    new MaterialAlertDialogBuilder(this)
+                        .setMessage(e.toString())
+                        .setPositiveButton("Ok", null)
+                        .show();
+                }
                 return true;
             case R.id.trash:
+                try {
                 Intent trashIntent = new Intent(this, TrashActivity.class);
                 startActivity(trashIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage(e.toString())
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
                 return true;
             case R.id.settings:
+                try {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    new MaterialAlertDialogBuilder(this)
+                            .setMessage(e.toString())
+                            .setPositiveButton("Ok", null)
+                            .show();
+                }
                 return true;
             default:
                 return false;
